@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raqmy Dataen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .hover-grow { transition: transform 0.25s ease; }
+    .hover-grow:hover { transform: scale(1.05); }
+    /* Carousel dot styles */
+    .carousel-dot {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .carousel-dot:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl">
+
+  <!-- HEADER -->
+  <header class="bg-white fixed w-full top-0 z-50 shadow">
+    <!-- Made header responsive with better padding on mobile -->
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16 sm:h-20">
+      <!-- Enlarged logo from text-xl sm:text-2xl md:text-3xl to text-4xl md:text-5xl -->
+      <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Raqmy Dataen</h1>
+
+      <!-- Menú escritorio -->
+      <nav class="space-x-4 sm:space-x-6 md:space-x-8 hidden md:flex font-medium text-xs sm:text-sm md:text-base uppercase text-blue-600">
+        <a href="#quienes" class="hover:text-blue-400">Quiénes Somos</a>
+        <a href="#servicios" class="hover:text-blue-400">Servicios</a>
+        <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+        <a href="#" id="valoresLink" class="hover:text-blue-400">Valores</a>
+      </nav>
+
+      <!-- Botón menú móvil -->
+      <button id="menuBtn" class="md:hidden text-blue-600 text-2xl focus:outline-none">
+        ☰
+      </button>
+    </div>
+
+    <!-- Menú desplegable móvil -->
+    <div id="mobileMenu" class="hidden flex-col bg-white shadow-md md:hidden">
+      <a href="#quienes" class="px-4 py-3 sm:px-6 sm:py-4 border-t hover:bg-blue-50 text-sm sm:text-base md:text-base">Quiénes Somos</a>
+      <a href="#servicios" class="px-4 py-3 sm:px-6 sm:py-4 border-t hover:bg-blue-50 text-sm sm:text-base md:text-base">Servicios</a>
+      <a href="#contacto" class="px-4 py-3 sm:px-6 sm:py-4 border-t hover:bg-blue-50 text-sm sm:text-base md:text-base">Contacto</a>
+      <a href="#" id="valoresLinkMobile" class="px-4 py-3 sm:px-6 sm:py-4 border-t hover:bg-blue-50 text-sm sm:text-base md:text-base">Valores</a>
+    </div>
+  </header>
+
+  <main class="pt-16 sm:pt-20 md:pt-32">
+
+    <!-- HERO -->
+    <!-- Made hero section fully responsive with mobile-first approach -->
+    <!-- Renamed hero background to head-background.jpg -->
+    <section id="inicio" class="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12" style="background-image: url('images/head-background.jpg'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="relative max-w-5xl mx-auto p-4 sm:p-6 md:p-10 z-10">
+        <!-- Reduced hero title from text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl to text-3xl md:text-4xl lg:text-5xl -->
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 md:mb-8 leading-snug text-white">Aliados estratégicos en gestión de salud</h2>
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-8 md:mb-10 text-gray-100">Acompañamos a Obras Sociales, Prepagas y Mutuales en la optimización de recursos y calidad asistencial.</p>
+        <a href="#contacto" class="bg-white text-blue-700 px-6 sm:px-8 md:px-10 py-2 sm:py-3 md:py-4 rounded-lg shadow hover:bg-gray-100 transition text-sm sm:text-base md:text-lg lg:text-xl font-semibold border border-gray-200 hover-grow inline-block">
+          Contactanos
+        </a>
+      </div>
+    </section>
+
+    <!-- QUIENES SOMOS -->
+    <!-- Made section responsive with stacked layout on mobile -->
+    <section id="quienes" class="py-16 sm:py-20 md:py-16 bg-white">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
+          <!-- Left column: Quiénes Somos -->
+          <div>
+            <!-- Reduced title from text-3xl sm:text-4xl md:text-5xl lg:text-6xl to text-3xl md:text-4xl lg:text-5xl -->
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-4 sm:mb-6 md:mb-8">Quiénes Somos</h2>
+            <p class="leading-relaxed text-sm sm:text-base md:text-lg lg:text-xl">
+              Somos una empresa especializada en la gestión y auditoría integral del sector salud, que se posiciona como aliado estratégico de Obras Sociales, Medicinas Prepagas, Mutuales e Instituciones de Salud.
+            </p>
+          </div>
+          
+          <!-- Right column: Conócenos content -->
+          <div>
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-500 mb-2">Misión</h3>
+            <p class="mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base md:text-lg">Optimizar eficiencia y sustentabilidad financiera de las organizaciones, garantizando calidad asistencial.</p>
+            
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-500 mb-2 mt-4 sm:mt-6">Equipo</h3>
+            <p class="mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base md:text-lg">Médicos, farmacéuticos, psicólogos, abogados, ingenieros y especialistas con más de 30 años de experiencia.</p>
+            
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-500 mb-2 mt-4 sm:mt-6">Nuestra propuesta</h3>
+            <p class="leading-relaxed text-sm sm:text-base md:text-lg">Soluciones integrales, innovación tecnológica, auditoría y gestión de subsidios, colaborando exitosamente con instituciones de salud.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <!-- Made services section fully responsive with mobile-first grid -->
+    <section id="servicios" class="py-24 sm:py-28 md:py-32 bg-gradient-to-b from-gray-200 to-gray-100 relative -mt-4 sm:-mt-6 md:-mt-8">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
+        <!-- Reduced services title from text-4xl sm:text-5xl md:text-7xl lg:text-8xl to text-3xl md:text-4xl lg:text-5xl -->
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-8 sm:mb-12 md:mb-16 text-center">Nuestros Servicios</h2>
+
+        <!-- Page 1 -->
+        <!-- Responsive grid: 1 col mobile, 2 col tablet, 4 col desktop -->
+        <div id="serviciosPage1" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Gestión de Reintegros SURGE</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Servicio integral de auditoría y gestión de reintegros vinculados al Programa SURGE y Subsidios de Diabetes...</p>
+            <div class="mt-auto">
+              <button data-modal="surge" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Subsidios de Discapacidad</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Brindar herramientas para la correcta confección y gestión de expedientes de subsidios de discapacidad...</p>
+            <div class="mt-auto">
+              <button data-modal="discapacidad" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Padrón de Beneficiarios</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Auditoría, control y depuración del padrón para optimizar la gestión administrativa y financiera...</p>
+            <div class="mt-auto">
+              <button data-modal="padron" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Medicamentos de Alto Costo</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Uso racional de recursos, calidad asistencial y sustentabilidad financiera a través de auditoría clínica y farmacológica...</p>
+            <div class="mt-auto">
+              <button data-modal="altocosto" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2 -->
+        <div id="serviciosPage2" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 hidden">
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Auditoría de Recetas</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Control integral de prescripción, dispensación y facturación; prevención de desvíos y optimización de costos...</p>
+            <div class="mt-auto">
+              <button data-modal="recetas" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Gestión Integral</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Inspecciones, cartillas, digitalización, vademécum, convenios, analítica y auditorías preventivas...</p>
+            <div class="mt-auto">
+              <button data-modal="integral" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Clínicas y Sanatorios</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Soluciones para optimizar gestión administrativa, asistencial y financiera con indicadores y mejora continua...</p>
+            <div class="mt-auto">
+              <button data-modal="clinicas" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+          <div class="bg-white p-8 shadow-lg rounded-2xl text-center hover-grow flex flex-col h-full">
+            <h3 class="font-semibold text-blue-600 mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl">Innovación en Salud</h3>
+            <p class="leading-relaxed text-gray-600 mb-4 sm:mb-6 line-clamp-4 text-xs sm:text-sm md:text-base lg:text-lg">Conectividad, receta digital, telemedicina, firma electrónica, gestión documental e integración tecnológica...</p>
+            <div class="mt-auto">
+              <button data-modal="innovacion" class="openService bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow hover:bg-blue-700 transition hover-grow text-xs sm:text-sm md:text-base lg:text-lg">Más</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel dots for navigation (visible on all screen sizes) -->
+        <div class="flex justify-center gap-4 mt-8 sm:mt-10 md:mt-12">
+          <button id="dot1" class="carousel-dot w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-blue-600 shadow-md" aria-label="Página 1"></button>
+          <button id="dot2" class="carousel-dot w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gray-300 shadow-md" aria-label="Página 2"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIDENCIALIDAD -->
+    <!-- Made section responsive with stacked layout on mobile -->
+    <section id="confidencialidad" class="py-16 sm:py-18 md:py-20 bg-gradient-to-b from-blue-900 to-blue-800">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-8 items-center">
+          <!-- Left column: Title and text -->
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Compromiso con la Confidencialidad</h2>
+            <p class="text-gray-100 leading-relaxed text-xs sm:text-sm md:text-base lg:text-lg">Adoptamos protocolos rigurosos de seguridad y cumplimos con las normativas de protección de datos personales en salud. La información de nuestros clientes es tratada con la máxima discreción y nunca se utiliza para fines distintos a los establecidos.</p>
+          </div>
+          
+          <!-- Right column: Image -->
+          <!-- Renamed to compromiso.jpg -->
+          <div class="flex justify-center md:ml-8">
+            <img src="images/compromiso.jpg" alt="Confidencialidad y compromiso" class="rounded-2xl shadow-2xl w-full max-w-[200px] sm:max-w-[240px] md:max-w-[280px] object-cover h-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <!-- Made contact form responsive -->
+    <section id="contacto" class="py-12 sm:py-16 md:py-16 bg-gradient-to-b from-gray-100 to-gray-200">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
+        <!-- Reduced contact title from text-3xl sm:text-4xl md:text-5xl lg:text-6xl to text-2xl md:text-3xl lg:text-4xl -->
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600 mb-6 sm:mb-8 md:mb-10 text-center">Contacto</h2>
+        
+        <!-- Updated form to handle submission with JavaScript -->
+        <form id="contactForm" class="grid gap-3 sm:gap-4 md:gap-5">
+          <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="border rounded px-3 sm:px-4 py-1 sm:py-2 md:py-2 focus:ring-2 focus:ring-blue-400 outline-none text-xs sm:text-sm md:text-base" required>
+          <input type="email" name="email" id="email" placeholder="Email" class="border rounded px-3 sm:px-4 py-1 sm:py-2 md:py-2 focus:ring-2 focus:ring-blue-400 outline-none text-xs sm:text-sm md:text-base" required>
+          <input type="tel" name="telefono" id="telefono" placeholder="Teléfono" class="border rounded px-3 sm:px-4 py-1 sm:py-2 md:py-2 focus:ring-2 focus:ring-blue-400 outline-none text-xs sm:text-sm md:text-base">
+          <textarea name="mensaje" id="mensaje" rows="5" placeholder="Mensaje" class="border rounded px-3 sm:px-4 py-1 sm:py-2 md:py-2 focus:ring-2 focus:ring-blue-400 outline-none text-xs sm:text-sm md:text-base text-gray-700" required></textarea>
+          
+          <!-- Added message display area -->
+          <div id="formMessage" class="hidden p-3 rounded-lg text-sm"></div>
+          
+          <!-- Reduced button padding and font size: px-6 sm:px-8 md:px-10 py-2 sm:py-3 md:py-4 → px-4 sm:px-6 py-1 sm:py-2 md:py-2, text-sm sm:text-base md:text-lg lg:text-xl → text-xs sm:text-sm md:text-base -->
+          <button type="submit" id="submitBtn" class="bg-blue-600 text-white px-4 sm:px-6 py-1 sm:py-2 md:py-2 rounded-lg shadow hover:bg-blue-700 transition text-xs sm:text-sm md:text-base hover-grow">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- Made footer responsive with better mobile layout -->
+  <footer class="bg-white text-blue-600 py-8 sm:py-10 md:py-12 mt-8 sm:mt-10">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+      <p class="text-xs sm:text-sm md:text-base text-center md:text-left">&copy; 2025 Raqmy Dataen. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm md:text-base">
+        <a href="#servicios" class="hover:text-blue-400">Servicios</a>
+        <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+        <a href="tel:+5491140285465" class="hover-grow bg-blue-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full shadow inline-flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+          📞 <span class="hidden sm:inline">+54 9 11 4028-5465</span><span class="sm:hidden">Llamar</span>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=raqmydataen@gmail.com" target="_blank" rel="noopener"
+           class="hover-grow bg-blue-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full shadow inline-flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+          ✉️ <span class="hidden sm:inline">raqmydataen@gmail.com</span><span class="sm:hidden">Email</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALES DE SERVICIOS -->
+  <!-- Made modals responsive -->
+
+  <!-- SURGE -->
+  <div id="surgeModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="surgePanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('surge')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Gestión de Reintegros SURGE</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Servicio integral de auditoría y gestión de reintegros vinculados al Programa SURGE y Subsidios de Diabetes, asegurando cumplimiento normativo, optimización de recursos y trazabilidad.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Diagnóstico y optimización de procedimientos administrativos.</li>
+          <li>Verificación de afiliación en la Superintendencia.</li>
+          <li>Auditoría médica, administrativa y contable.</li>
+          <li>Capacitación y ordenamiento de procesos internos.</li>
+          <li>Validación y control de trazabilidad ANMAT.</li>
+          <li>Armado, escaneo y carga de expedientes en SURGE.</li>
+          <li>Gestión de inconsistencias.</li>
+          <li>Archivo de respaldo documental.</li>
+          <li>Actualización normativa.</li>
+          <li>Seguimiento de expedientes y conciliaciones.</li>
+          <li>Acompañamiento en inspecciones SURGE.</li>
+          <li>Interlocutores oficiales ante la Superintendencia.</li>
+          <li>Envío diario de información sobre nuevas resoluciones.</li>
+        </ul>
+        
+        <!-- Adding image spaces for 1.jpg and 11.jpg -->
+        <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <div class="w-full sm:w-1/2">
+            <img src="images/1.jpg" alt="Gestión SURGE" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+          <div class="w-full sm:w-1/2">
+            <img src="images/11.jpg" alt="Documentación SURGE" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCAPACIDAD -->
+  <!-- Updated modal positioning and size, added image -->
+  <div id="discapacidadModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="discapacidadPanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('discapacidad')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Subsidios de Discapacidad</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Brindar herramientas para la correcta confección y gestión de expedientes de subsidios de discapacidad ante la Superintendencia de Servicios de Salud.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Capacitación sobre la confección de carpetas (Afiliación, CUD).</li>
+          <li>Control de documentación de prestaciones con/sin subsidio de integración.</li>
+          <li>Identificación de prestaciones de rehabilitación, transporte y educativas.</li>
+          <li>Análisis, auditoría y control administrativo, médico y contable.</li>
+          <li>Gestión de inconsistencias.</li>
+          <li>Equipo multidisciplinario en Discapacidad y Salud Mental.</li>
+          <li>Auditorías en terreno (Discapacidad, Salud Mental, Drogadicción).</li>
+          <li>Asesoramiento en convenios, facturación y circuitos administrativos.</li>
+          <li>Modulación de prestaciones.</li>
+          <li>Mecanismo de Integración: expedientes, auditoría de facturación, QR, FTP, pagos, notificaciones y control.</li>
+        </ul>
+        
+        <!-- Using direct Vercel blob URL for subsidios image -->
+        <div class="mt-6 sm:mt-8 flex justify-center">
+          <div class="w-full sm:w-1/2">
+            <img src="images/2.jpg" alt="Rendición del Sistema de Integración" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PADRÓN -->
+  <!-- Updated modal positioning and size, added image -->
+  <div id="padronModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="padronPanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('padron')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Auditoría y Control del Padrón</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Servicio integral de auditoría, control y depuración del padrón de beneficiarios, optimizando la gestión administrativa y financiera.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Control de altas y bajas masivas automatizadas.</li>
+          <li>Verificación cruzada y detección de coberturas superpuestas.</li>
+          <li>Reportes conforme a normativas de la Superintendencia.</li>
+          <li>Control de aportes y contribuciones ante AFIP y SSSalud.</li>
+          <li>Resolución de desvíos en aportes y subsidios.</li>
+          <li>Reportes detallados por CUIL/CUIT.</li>
+        </ul>
+        
+        <!-- Using direct Vercel blob URL for padron image -->
+        <div class="mt-6 sm:mt-8 flex justify-center">
+          <div class="w-full sm:w-1/2">
+            <img src="images/3.jpg" alt="Análisis de datos y gestión" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALTO COSTO -->
+  <!-- Updated modal positioning and size, added image -->
+  <div id="altocostoModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="altocostoPanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('altocosto')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Medicamentos de Alto Costo</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Garantizar uso racional de recursos, calidad asistencial y sustentabilidad financiera.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Auditoría médica y farmacológica integral.</li>
+          <li>Evaluación clínica, protocolos e indications.</li>
+          <li>Control documental para subsidios SURGE.</li>
+          <li>Análisis de gasto e indicadores técnicos.</li>
+          <li>Capacitación y protocolos internos.</li>
+          <li>Negociación con laboratorios.</li>
+          <li>Equipo multidisciplinario (cronicidad, oncohematología, farmacoeconomía).</li>
+          <li>Gestión y compra de insumos médicos de alto costo.</li>
+        </ul>
+        
+        <!-- Using direct Vercel blob URL for medicamentos image -->
+        <div class="mt-6 sm:mt-8 flex justify-center">
+          <div class="w-full sm:w-1/2">
+            <img src="images/4.jpg" alt="Receta Digital" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECETAS -->
+  <!-- Updated modal positioning and size, added image -->
+  <div id="recetasModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="recetasPanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('recetas')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Auditoría de Recetas</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Control integral de prescripción, dispensación y facturación; prevención de desvíos y optimización de costos.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Auditoría de prescripciones, dispensación y facturación.</li>
+          <li>Detección de desvíos y fraudes en expendio.</li>
+          <li>Control de uso de medicamentos en patologías crónicas.</li>
+          <li>Indicadores de prescripción.</li>
+          <li>Auditoría presencial en farmacias.</li>
+          <li>Intervención en conflictos con prestadores.</li>
+          <li>Asesoramiento en contratación de prestadores.</li>
+        </ul>
+        
+        <!-- Using direct Vercel blob URL for auditoria image -->
+        <div class="mt-6 sm:mt-8 flex justify-center">
+          <div class="w-full sm:w-1/2">
+            <img src="images/5.jpg" alt="Auditoría médica de recetas" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTEGRAL -->
+  <!-- Updated modal positioning and size, added image -->
+  <div id="integralModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="integralPanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('integral')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Gestión Integral</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Auditoría médica y control integral para la mejora de la gestión asistencial y administrativa.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Inspecciones médicas a prestadores.</li>
+          <li>Auditorías administrativas y confección de cartillas.</li>
+          <li>Digitalización de documentación (gestión documental, firma digital).</li>
+          <li>Desarrollo y auditoría del vademécum.</li>
+          <li>Asesoramiento en convenios con prestadores.</li>
+          <li>Analítica de negocios y tableros de indicadores.</li>
+          <li>Auditorías preventivas: trazadoras y programas específicos.</li>
+        </ul>
+        
+        <!-- Using direct Vercel blob URL for gestion image -->
+        <div class="mt-6 sm:mt-8 flex justify-center">
+          <div class="w-full sm:w-1/2">
+            <img src="images/6.jpg" alt="Plataforma SIGMAC" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLÍNICAS -->
+  <!-- Updated modal positioning and size, added image -->
+  <div id="clinicasModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="clinicasPanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('clinicas')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Clínicas y Sanatorios</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Soluciones integrales para optimizar la gestión administrativa, asistencial y financiera.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Análisis de sistemas y circuitos de gestión.</li>
+          <li>Control de productividad de servicios (maternidad, guardia, UTI, quirófanos, consultas externas, internación general).</li>
+          <li>Gestión y auditoría de facturación.</li>
+          <li>Indicadores y tableros (sistema de alertas, ocupación, giro cama, ALOS, CMI).</li>
+          <li>Organización administrativa y asistencial (protocolos, guías, comités).</li>
+          <li>Gestión de convenios y negociaciones.</li>
+          <li>Compras de insumos y medicamentos.</li>
+          <li>Mejora continua y evaluaciones periódicas.</li>
+        </ul>
+        
+        <!-- Using direct Vercel blob URL for clinicas image -->
+        <div class="mt-6 sm:mt-8 flex justify-center">
+          <div class="w-full sm:w-1/2">
+            <img src="images/7.jpg" alt="Gestión documental digital" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INNOVACIÓN -->
+  <!-- Updated modal positioning and size, added two images in grid -->
+  <div id="innovacionModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4 pt-8 sm:pt-12">
+    <div id="innovacionPanel" class="bg-white w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl rounded-2xl shadow-2xl transform scale-90 opacity-0 transition-all duration-300 ease-out text-gray-700">
+      <div class="p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('innovacion')" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Innovación en Salud</h2>
+        <p class="mb-3 sm:mb-4 text-sm sm:text-base">Tecnología aplicada a la gestión, conectividad, transformación digital y mejora de procesos.</p>
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-xs sm:text-sm">
+          <li>Receta digital, interacción, prescripción asistida y dispensación.</li>
+          <li>Comunicación con beneficiarios (notificaciones, mensajería).</li>
+          <li>Desarrollo de portales web y apps.</li>
+          <li>Integración tecnológica y conectividad con sistemas internos y del mercado.</li>
+          <li>Gestión documental electrónica con firma digital y validación.</li>
+          <li>Telemedicina, teleconsultas y mensajería médica.</li>
+          <li>Desarrollo de sistemas de información.</li>
+          <li>Evaluación e implementación de soluciones tecnológicas (RPA, IA, blockchain).</li>
+          <li>Aplicaciones móviles.</li>
+        </ul>
+        
+        <!-- Using direct Vercel blob URLs for both innovacion images -->
+        <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div class="flex justify-center">
+            <img src="images/8.jpg" alt="Obra Social y servicios de salud" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+          <div class="flex justify-center">
+            <img src="images/88.jpg" alt="Innovación digital en salud" class="rounded-lg shadow-md w-full h-56 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALORES -->
+  <div id="valoresModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-start justify-center p-4">
+    <div id="valoresPanel" class="bg-white w-full max-w-2xl sm:max-w-3xl rounded-2xl shadow-2xl transform -translate-y-full opacity-0 transition-all duration-500 ease-out text-gray-700 mt-16 sm:mt-20">
+      <div class="p-6 sm:p-8 relative max-h-[80vh] overflow-y-auto">
+        <button onclick="closeValores()" class="absolute top-4 right-4 sm:right-6 text-2xl sm:text-3xl font-bold text-gray-400 hover:text-gray-600">&times;</button>
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-4 sm:mb-6">Nuestros Valores</h2>
+        <ul class="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base">
+          <li><strong class="text-blue-600">Compromiso:</strong> responsabilidad y dedicación en cada proyecto.</li>
+          <li><strong class="text-blue-600">Transparencia:</strong> comunicación clara y honesta.</li>
+          <li><strong class="text-blue-600">Innovación:</strong> tecnologías modernas para soluciones eficientes.</li>
+          <li><strong class="text-blue-600">Calidad:</strong> excelencia y mejora continua.</li>
+          <li><strong class="text-blue-600">Trabajo en equipo:</strong> colaboración multidisciplinaria para resultados integrales.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    // Menú móvil
+    const menuBtn=document.getElementById('menuBtn');
+    const mobileMenu=document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});
+
+    // Slider de servicios
+    const page1=document.getElementById('serviciosPage1');
+    const page2=document.getElementById('serviciosPage2');
+    const dot1=document.getElementById('dot1');
+    const dot2=document.getElementById('dot2');
+    let current=1;
+    function updateSlider(){
+      if(current===1){
+        page1.classList.remove('hidden');
+        page2.classList.add('hidden');
+        dot1.classList.add('bg-blue-600');
+        dot1.classList.remove('bg-gray-300');
+        dot2.classList.remove('bg-blue-600');
+        dot2.classList.add('bg-gray-300');
+      }else{
+        page1.classList.add('hidden');
+        page2.classList.remove('hidden');
+        dot1.classList.remove('bg-blue-600');
+        dot1.classList.add('bg-gray-300');
+        dot2.classList.add('bg-blue-600');
+        dot2.classList.remove('bg-gray-300');
+      }
+    }
+    dot1.addEventListener('click',()=>{current=1;updateSlider();});
+    dot2.addEventListener('click',()=>{current=2;updateSlider();});
+    
+    // Modales de servicios
+    function openModal(name){
+      const m=document.getElementById(name+'Modal');
+      const p=document.getElementById(name+'Panel');
+      m.classList.remove('hidden');
+      setTimeout(()=>{
+        p.classList.remove('scale-90','opacity-0');
+        p.classList.add('scale-100','opacity-100');
+      },50);
+    }
+    function closeModal(name){
+      const m=document.getElementById(name+'Modal');
+      const p=document.getElementById(name+'Panel');
+      p.classList.remove('scale-100','opacity-100');
+      p.classList.add('scale-90','opacity-0');
+      setTimeout(()=>{m.classList.add('hidden');},300);
+    }
+    document.querySelectorAll('.openService').forEach(btn=>{
+      btn.addEventListener('click',()=>openModal(btn.dataset.modal));
+    });
+
+    // Modal Valores
+    const valoresLink=document.getElementById('valoresLink');
+    const valoresLinkMobile=document.getElementById('valoresLinkMobile');
+    function openValores(){
+      const m=document.getElementById('valoresModal');
+      const p=document.getElementById('valoresPanel');
+      m.classList.remove('hidden');
+      setTimeout(()=>{
+        p.classList.remove('-translate-y-full','opacity-0');
+        p.classList.add('translate-y-0','opacity-100');
+      },50);
+    }
+    function closeValores(){
+      const m=document.getElementById('valoresModal');
+      const p=document.getElementById('valoresPanel');
+      p.classList.remove('translate-y-0','opacity-100');
+      p.classList.add('-translate-y-full','opacity-0');
+      setTimeout(()=>{m.classList.add('hidden');},500);
+    }
+    valoresLink?.addEventListener('click',(e)=>{e.preventDefault();openValores();});
+    valoresLinkMobile?.addEventListener('click',(e)=>{e.preventDefault();openValores();});
+
+    // Contact form submission handler
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const formMessage = document.getElementById('formMessage');
+      const originalBtnText = submitBtn.textContent;
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      formMessage.classList.add('hidden');
+
+      const formData = {
+        name: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        message: `${document.getElementById('mensaje').value}\n\nTeléfono: ${document.getElementById('telefono').value}`
+      };
+
+      try {
+        const response = await fetch('https://raqmydataenbackend-production.up.railway.app/contacto', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          formMessage.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.';
+          formMessage.className = 'p-3 rounded-lg text-sm bg-green-100 text-green-800';
+          formMessage.classList.remove('hidden');
+          document.getElementById('contactForm').reset();
+        } else {
+          throw new Error('Error al enviar');
+        }
+      } catch (error) {
+        formMessage.textContent = 'Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.';
+        formMessage.className = 'p-3 rounded-lg text-sm bg-red-100 text-red-800';
+        formMessage.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    });
+
+    // Scroll to contact section
+    function scrollToContact() {
+      document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
