@@ -8,42 +8,6 @@ const path = require("path")
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use((req, res, next) => {
-  console.log(`[v0] ${req.method} ${req.path}`, {
-    body: req.body,
-    headers: req.headers,
-  })
-  next()
-})
-
-app.set("view engine", "ejs")
-app.set("views", path.join(__dirname, "views"))
-
-// Middleware
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-  }),
-)
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "raqmy-dataen-secret-key",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 2, // 2 horas
-      httpOnly: true,
-      secure: false, // Cambiar a true si usas HTTPS
-      sameSite: "lax",
-    },
-  }),
-)
-
 // Configuración de la base de datos
 const dbConfig = {
   host: process.env.DB_HOST || "localhost",
@@ -84,12 +48,51 @@ function requireAuth(req, res, next) {
   res.redirect("/admin/login")
 }
 
+// Middleware
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  }),
+)
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "clave_secreta_123",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+    },
+  }),
+)
+
+app.use((req, res, next) => {
+  console.log(`[v0] ${req.method} ${req.path}`, {
+    body: req.body,
+    contentType: req.headers["content-type"],
+  })
+  next()
+})
+
+app.set("view engine", "ejs")
+app.set("views", path.join(__dirname, "views"))
+
 // Endpoint POST /contacto
 app.post("/contacto", async (req, res) => {
+  console.log("[v0] Endpoint /contacto recibido")
+  console.log("[v0] Body recibido:", req.body)
+
   const { nombre, email, telefono, mensaje } = req.body
 
   // Validación de campos obligatorios
   if (!nombre || !email || !mensaje) {
+    console.log("[v0] Validación fallida - campos faltantes:", { nombre: !!nombre, email: !!email, mensaje: !!mensaje })
     return res.status(400).json({
       success: false,
       error: "Los campos nombre, email y mensaje son obligatorios",
@@ -99,6 +102,7 @@ app.post("/contacto", async (req, res) => {
   // Validación básica de email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(email)) {
+    console.log("[v0] Validación fallida - email inválido:", email)
     return res.status(400).json({
       success: false,
       error: "El formato del email no es válido",
@@ -106,6 +110,7 @@ app.post("/contacto", async (req, res) => {
   }
 
   try {
+    console.log("[v0] Intentando insertar en BD...")
     // Insertar en la base de datos
     const query = `
       INSERT INTO mensajes (nombre, email, telefono, mensaje, fecha)
@@ -119,7 +124,7 @@ app.post("/contacto", async (req, res) => {
       mensaje.trim(),
     ])
 
-    console.log(`✅ Nuevo mensaje guardado - ID: ${result.insertId}`)
+    console.log(`[v0] ✅ Nuevo mensaje guardado - ID: ${result.insertId}`)
 
     res.status(201).json({
       success: true,
@@ -127,7 +132,8 @@ app.post("/contacto", async (req, res) => {
       id: result.insertId,
     })
   } catch (error) {
-    console.error("❌ Error al guardar el mensaje:", error)
+    console.error("[v0] ❌ Error al guardar el mensaje:", error)
+    console.error("[v0] Stack trace:", error.stack)
     res.status(500).json({
       success: false,
       error: "Error al procesar el mensaje. Por favor, intente nuevamente.",
