@@ -8,6 +8,14 @@ const path = require("path")
 const app = express()
 const PORT = process.env.PORT || 3000
 
+app.use((req, res, next) => {
+  console.log(`[v0] ${req.method} ${req.path}`, {
+    body: req.body,
+    headers: req.headers,
+  })
+  next()
+})
+
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
 
