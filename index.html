@@ -592,9 +592,10 @@
       formMessage.classList.add('hidden');
 
       const formData = {
-        name: document.getElementById('nombre').value,
+        nombre: document.getElementById('nombre').value,
         email: document.getElementById('email').value,
-        message: `${document.getElementById('mensaje').value}\n\nTeléfono: ${document.getElementById('telefono').value}`
+        telefono: document.getElementById('telefono').value,
+        mensaje: document.getElementById('mensaje').value
       };
 
       try {
